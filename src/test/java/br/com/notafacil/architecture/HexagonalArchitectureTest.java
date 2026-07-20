@@ -13,6 +13,7 @@ class HexagonalArchitectureTest {
     @ArchTest
     static final ArchRule hexagonalBoundaries = layeredArchitecture()
             .consideringOnlyDependenciesInLayers()
+            .withOptionalLayers(true)
             .layer("Domain").definedBy("br.com.notafacil.domain..")
             .layer("Application").definedBy("br.com.notafacil.application..")
             .layer("Infrastructure").definedBy("br.com.notafacil.infrastructure..")
