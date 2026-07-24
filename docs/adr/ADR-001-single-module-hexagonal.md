@@ -21,11 +21,3 @@ Regras impostas:
 2. `domain` não depende de nenhum framework (Spring, JPA, Jackson).
 3. `application` não depende de `infrastructure`.
 4. `infrastructure` é a única camada que conhece as demais.
-
-## Consequências
-
-- (+) Navegação mais simples para revisores e recrutadores
-- (+) Build mais rápido, sem overhead de reactor Maven
-- (+) Violação de camada quebra o build (ArchUnit), não depende de disciplina
-- (-) Fronteira não é imposta pelo compilador — mitigado pelo ArchUnit
-- (-) Se o projeto crescer para múltiplos deployables, migraremos para multi-module
