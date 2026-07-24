@@ -99,6 +99,21 @@ public class NotaFiscal {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
+    //Notas - Reconstituir uma nota a partir de dados já salvos
+
+    public static NotaFiscal reconstituir(UUID id, Cnpj emitente, Cnpj destinatario,
+                                          List<ItemNota> itens, Instant criadaEm, StatusNota status,
+                                          String chaveAcesso, String protocoloAutorizacao,
+                                          Instant autorizadaEm, String motivoRejeicao) {
+        var nota = new NotaFiscal(id, emitente, destinatario, itens, criadaEm);
+        nota.status = status;
+        nota.chaveAcesso = chaveAcesso;
+        nota.protocoloAutorizacao = protocoloAutorizacao;
+        nota.autorizadaEm = autorizadaEm;
+        nota.motivoRejeicao = motivoRejeicao;
+        return nota;
+    }
+
     public UUID getId() { return id; }
     public Cnpj getEmitente() { return emitente; }
     public Cnpj getDestinatario() { return destinatario; }
